@@ -1,8 +1,9 @@
 # FDUINO
 ## GOAL
 The goal of this project is to LEARN.
+
 And so any good advice is welcome. :-)
-### Branches:
+#### Branches:
 master: build line follower
 ## DISCLAIMER
 This project depends on: https://github.com/martinmake/AVR_libs.git

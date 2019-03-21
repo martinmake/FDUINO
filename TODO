@@ -1,13 +1,4 @@
 MAIN:
- _/ change all pin names on atmega to just their first name
-  \ change signal names in busses
- - connect remaining pins on DRV8834
- - add 2 buttons
- - add 8 always-on LED_WHITE_SMD and 8 transistors connected to ADC port
- - add encoders
- - add blue leds to motor encoders and OC pins
- - add power supply
- - add orange led to power supply
-
-OPTIONAL:
- - add 2 leds
+* add 2 buttons
+* add ultra sonic sensor
+* add blue leds to motor encoders and OC pins

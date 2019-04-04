@@ -48,3 +48,4 @@ cscope
 # Other
 *.*#*
 eagle.epf
+HARDWARE/martin_make_eagle_lib/*

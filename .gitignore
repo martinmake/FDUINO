@@ -45,7 +45,11 @@ tags
 cscope
 .ycm_extra_conf.py
 
-# Other
+# Eagle
 *.*#*
 eagle.epf
 HARDWARE/martin_make_eagle_lib/*
+*.scr
+*.~cv
+
+# Other

@@ -53,3 +53,4 @@ HARDWARE/martin_make_eagle_lib/*
 *.~cv
 
 # Other
+HARDWARE/line_follower/printing/*

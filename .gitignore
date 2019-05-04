@@ -51,6 +51,7 @@ eagle.epf
 HARDWARE/martin_make_eagle_lib/*
 *.scr
 *.~cv
+*.tmp
 
 # Other
 HARDWARE/line_follower/printing/*

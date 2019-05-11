@@ -1,4 +1,4 @@
-# fduino
+# jet_vixen
 ## DISCLAIMER
 This project depends on: https://github.com/martinmake/AVR_libs.git
 ## HOW TO COMPILE

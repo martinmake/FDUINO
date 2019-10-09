@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.0">
+<eagle version="9.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="dots" multiple="2" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -21408,9 +21408,9 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <instance part="GND1" gate="1" x="-8.89" y="133.35" smashed="yes">
 <attribute name="VALUE" x="-8.89" y="132.08" size="1.778" layer="96" align="center"/>
 </instance>
-<instance part="PH2" gate="G$1" x="43.18" y="124.46" smashed="yes" rot="MR90">
-<attribute name="NAME" x="48.26" y="121.158" size="1.27" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="35.56" y="121.158" size="1.27" layer="96" rot="MR180"/>
+<instance part="PH2" gate="G$1" x="43.18" y="125.73" smashed="yes" rot="MR90">
+<attribute name="NAME" x="48.26" y="122.428" size="1.27" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="35.56" y="122.428" size="1.27" layer="96" rot="MR180"/>
 </instance>
 <instance part="PH1" gate="G$1" x="12.7" y="125.73" smashed="yes" rot="MR90">
 <attribute name="NAME" x="17.78" y="122.428" size="1.27" layer="95" rot="MR180"/>
@@ -21795,7 +21795,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="12.7" y1="134.62" x2="27.94" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="PH2" gate="G$1" pin="3"/>
 <wire x1="27.94" y1="134.62" x2="43.18" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="134.62" x2="43.18" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="134.62" x2="43.18" y2="133.35" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="134.62" x2="27.94" y2="132.08" width="0.1524" layer="91"/>
 <junction x="27.94" y="134.62"/>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -21909,7 +21909,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <wire x1="15.24" y1="137.16" x2="27.94" y2="137.16" width="0.1524" layer="91"/>
 <pinref part="PH2" gate="G$1" pin="4"/>
 <wire x1="27.94" y1="137.16" x2="45.72" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="137.16" x2="45.72" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="137.16" x2="45.72" y2="133.35" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="137.16" x2="27.94" y2="139.7" width="0.1524" layer="91"/>
 <junction x="27.94" y="137.16"/>
 <pinref part="P+2" gate="VCC" pin="VCC"/>
@@ -22264,7 +22264,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </segment>
 <segment>
 <pinref part="PH2" gate="G$1" pin="2"/>
-<wire x1="40.64" y1="132.08" x2="40.64" y2="144.78" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="133.35" x2="40.64" y2="144.78" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="147.32" x2="40.64" y2="144.78" width="0.1524" layer="91"/>
 <label x="40.64" y="144.78" size="1.778" layer="95" rot="MR270"/>
 </segment>
@@ -22412,7 +22412,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 <segment>
 <wire x1="45.72" y1="147.32" x2="48.26" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="PH2" gate="G$1" pin="5"/>
-<wire x1="48.26" y1="144.78" x2="48.26" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="144.78" x2="48.26" y2="133.35" width="0.1524" layer="91"/>
 <label x="48.26" y="144.78" size="1.778" layer="95" rot="MR270"/>
 </segment>
 </net>
@@ -22425,7 +22425,7 @@ Holes are offset 0.005" from center, locking pins in place during soldering.
 </segment>
 <segment>
 <wire x1="35.56" y1="147.32" x2="38.1" y2="144.78" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="144.78" x2="38.1" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="144.78" x2="38.1" y2="133.35" width="0.1524" layer="91"/>
 <pinref part="PH2" gate="G$1" pin="1"/>
 <label x="38.1" y="144.78" size="1.778" layer="95" rot="MR270"/>
 </segment>

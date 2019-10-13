@@ -54,7 +54,7 @@ bool Drivers::test(TEST current_test)
 	switch (current_test)
 	{
 		case ALL: return test();
-		case DISTANCE_SENSOR:
+		case LINE_SENSOR:
 		{
 
 		}
@@ -67,7 +67,7 @@ bool Drivers::test(void)
 {
 	bool has_failed = false;
 
-	if (test(DISTANCE_SENSOR)) has_failed = true;
+	if (test(LINE_SENSOR)) has_failed = true;
 
 	if (has_failed) return false;
 	else            return true;

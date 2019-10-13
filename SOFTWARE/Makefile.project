@@ -2,10 +2,12 @@
 
 NAME_EXAMPLE:=$(shell echo $(realpath .) | sed -E 's/.*\/([^\/]*\/[^\/]*)$$/\1/')
 
-include $(MAKEFILE).config
-include Makefile.config
+CONFIG:=Makefile.config
+include $(CONFIG)
 
 LIBS+=util
+LIBS+=printf_flt
+
 DEFS+=F_CPU=$(F_CPU) TIO_BAUD=$(TIO_BAUD)
 
 LIBS:=$(addprefix -l,$(LIBS))
@@ -20,13 +22,12 @@ OBJS_CXX:=$(patsubst $(DIR_SRC)/%.cpp,$(DIR_OBJ)/%.o,$(SRCS_CXX))
 OBJS_ASM:=$(patsubst $(DIR_SRC)/%.S,  $(DIR_OBJ)/%.o,$(SRCS_ASM))
 OBJS    :=$(OBJS_C) $(OBJS_CXX) $(OBJS_ASM)
 
-DIRS_INC+=/usr/avr/include
-INC:=$(addprefix -I,$(DIRS_INC) $(DIR_INC_LIB))
+INC:=$(addprefix -I,$(DIRS_INC) $(DIR_LIB_INC) $(DIR_FOSL))
 
 FLAGS_CC :=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS) -std=c99
 FLAGS_CXX:=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS) -std=c++14 -fno-rtti
 FLAGS_ASM:=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS)
-FLAGS_LD :=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) -L$(DIR_LIB_LIB)/$(MCU) -Wl,--gc-sections
+FLAGS_LD :=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) -L$(DIR_LIB_LIB)/$(MCU) -Wl,-u,vfprintf -Wl,--gc-sections
 
 .SECONDARY: $(OBJS)
 
@@ -83,9 +84,11 @@ bear:
 	@better-bear $(DIR_SRC) $(DIRS_INC)
 
 .PHONY: clean
+clean: CLEAN_FILES+=$(ELF) $(HEX) $(BIN) $(ASM)
+clean: CLEAN_FILES+=$(shell find ./$(DIR_OBJ) ./$(DIR_DEP) -type f -name '[!.]*')
 clean:
 	@echo "> CLEANING $(NAME_EXAMPLE)"
-	-rm -vfr ./$(DIR_OBJ)/* ./$(DIR_DEP)/* $(ELF) $(HEX) $(BIN) $(ASM) | sed -e 's/^/* /'
+	-rm -vfr $(shell echo $(CLEAN_FILES) | tr " " "\n") | sort | sed -e 's/^/* /'
 	@echo "< CLEANING $(NAME_EXAMPLE) DONE"
 
 ifeq ($(NODEP),)

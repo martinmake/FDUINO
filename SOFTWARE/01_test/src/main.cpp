@@ -7,6 +7,5 @@ int main(void)
 
 	while (true)
 	{
-		printf("%d\n", adc.value);
 	}
 }

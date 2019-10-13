@@ -7,13 +7,16 @@
 #include <timer/timer0.h>
 #include <usart/usart0.h>
 
+#include "config.h"
+#include "driver/all.h"
+
 using namespace Timer;
 using namespace Usart;
 
 class Drivers
 {
 	public: // TYPES
-		enum TEST { ALL, DISTANCE_SENSOR };
+		enum TEST { ALL, LINE_SENSOR };
 
 	public: // CONSTURCTORS
 		Drivers(void);

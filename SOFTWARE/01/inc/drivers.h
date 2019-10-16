@@ -13,23 +13,30 @@
 using namespace Timer;
 using namespace Usart;
 
+using namespace Driver;
+
 class Drivers
 {
 	public: // TYPES
-		enum TEST { ALL, LINE_SENSOR };
+		enum TEST { ALL, MOTORS, LINE_SENSOR, OBSTACLE_DETECTOR };
 
 	public: // CONSTURCTORS
-		Drivers(void);
+		Drivers(void) = default;
 	public: // DESTURCTORS
-		~Drivers(void);
+		~Drivers(void) = default;
+
+	public: // VARIABLES
+		Motors           motors;
+		LineSensor       line_sensor;
+		ObstacleDetector obstacle_detector;
 
 	public: // GETTERS
 		bool are_initialized(void) const;
 
 	public: // METHODS
-		void init(void);
-		bool test(TEST current_test);
+		bool init(void);
 		bool test(void);
+		bool test(TEST current_test);
 
 	private:
 		bool m_are_initialized = false;

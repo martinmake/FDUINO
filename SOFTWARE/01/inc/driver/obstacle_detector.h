@@ -5,12 +5,16 @@
 
 namespace Driver
 {
-	class ObstacleDetectors : public Driver::Base
+	class ObstacleDetector : public Driver::Base
 	{
 		public: // CONSTURCTORS
-			ObstacleDetectors(void);
+			ObstacleDetector(void);
 		public: // DESTURCTORS
-			~ObstacleDetectors(void);
+			~ObstacleDetector(void);
+
+		public: // METHODS
+			bool init(void) override;
+			bool test(void) override;
 	};
 }
 

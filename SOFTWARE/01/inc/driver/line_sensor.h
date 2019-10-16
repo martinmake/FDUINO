@@ -5,12 +5,16 @@
 
 namespace Driver
 {
-	class LineSensors : public Driver::Base
+	class LineSensor : public Driver::Base
 	{
 		public: // CONSTURCTORS
-			LineSensors(void);
+			LineSensor(void);
 		public: // DESTURCTORS
-			~LineSensors(void);
+			~LineSensor(void);
+
+		public: // METHODS
+			bool init(void) override;
+			bool test(void) override;
 	};
 }
 

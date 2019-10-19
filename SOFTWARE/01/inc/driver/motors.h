@@ -17,10 +17,6 @@ namespace Driver
 		public: // DESTURCTORS
 			~Motors(void) = default;
 
-		public: // GETTERS
-			void speed_left (void) const;
-			void speed_right(void) const;
-			void speed(void) const = delete;
 		public: // SETTERS
 			void speed_left (uint8_t pwm_stride);
 			void speed_right(uint8_t pwm_stride);
@@ -37,9 +33,6 @@ namespace Driver
 			Gpio<MOTOR_GPIO_DIR_RIGHT> m_dir_right;
 	};
 
-	// SETTERS
-	inline void Motors::speed_left (void) const { } // TODO: implement with incremental encoder
-	inline void Motors::speed_right(void) const { } // TODO: implement with incremental encoder
 	// SETTERS
 	inline void Motors::speed(uint8_t pwm_stride_left, uint8_t pwm_stride_right)
 	{

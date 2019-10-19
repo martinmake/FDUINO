@@ -3,6 +3,7 @@
 
 #include <gpio.h>
 #include <system_clock.h>
+#include <external_interrupt.h>
 
 #include "driver/base.h"
 
@@ -27,28 +28,28 @@ namespace Driver
 		public:
 			static volatile int32_t pulses_left;
 			static volatile int32_t pulses_right;
+			static Gpio<INCREMENTAL_ENCODER_GPIO_LEFT>  m_input_left;
+			static Gpio<INCREMENTAL_ENCODER_GPIO_RIGHT> m_input_right;
 
 		private:
-			Gpio<INCREMENTAL_ENCODER_GPIO_LEFT>  m_input_left;
-			Gpio<INCREMENTAL_ENCODER_GPIO_RIGHT> m_input_right;
+			ExternalInterrupt m_encoder_pin_change_left;
+			ExternalInterrupt m_encoder_pin_change_right;
 	};
 
 	// SETTERS
 	inline int32_t IncrementalEncoders::distance_left(void) const
 	{
 		int32_t pulses_snapshot;
-		ATOMIC_BLOCK(ATOMIC_FORCEON)
-			pulses_snapshot = pulses_left;
+		ATOMIC() pulses_snapshot = pulses_left;
 
-		return (pulses_snapshot / INCREMENTAL_ENCODER_PULSES_PER_ROTATION) * WHEEL_CIRCUMFERENCE;
+		return pulses_snapshot * WHEEL_CIRCUMFERENCE / INCREMENTAL_ENCODER_PULSES_PER_ROTATION;
 	}
 	inline int32_t IncrementalEncoders::distance_right(void) const
 	{
 		int32_t pulses_snapshot;
-		ATOMIC_BLOCK(ATOMIC_FORCEON)
-			pulses_snapshot = pulses_right;
+		ATOMIC() pulses_snapshot = pulses_right;
 
-		return (pulses_snapshot / INCREMENTAL_ENCODER_PULSES_PER_ROTATION) * WHEEL_CIRCUMFERENCE;
+		return pulses_snapshot * WHEEL_CIRCUMFERENCE / INCREMENTAL_ENCODER_PULSES_PER_ROTATION;
 	}
 	inline int32_t IncrementalEncoders::distance(void) const
 	{

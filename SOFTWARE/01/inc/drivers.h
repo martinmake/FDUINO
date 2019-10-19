@@ -6,6 +6,7 @@
 #include <gpio.h>
 #include <timer/timer0.h>
 #include <usart/usart0.h>
+#include <led.h>
 
 #include "config.h"
 #include "driver/all.h"
@@ -18,32 +19,31 @@ using namespace Driver;
 class Drivers
 {
 	public: // TYPES
-		enum TEST { ALL, MOTORS, LINE_SENSOR, OBSTACLE_DETECTOR };
+		enum TEST
+		{
+			ALL,
+			MOTORS_CONTROLLER,
+			LINE_SENSOR,
+			OBSTACLE_DETECTOR
+		};
 
 	public: // CONSTURCTORS
 		Drivers(void) = default;
-	public: // DESTURCTORS
+	public: // DESTURCTOR
 		~Drivers(void) = default;
 
 	public: // VARIABLES
-		Motors           motors;
+		MotorsController motors_controller;
 		LineSensor       line_sensor;
 		ObstacleDetector obstacle_detector;
-
-	public: // GETTERS
-		bool are_initialized(void) const;
+		Led<LED_GPIO_LEFT> led_left;
+		Led<LED_GPIO_LEFT> led_right;
 
 	public: // METHODS
 		bool init(void);
 		bool test(void);
 		bool test(TEST current_test);
-
-	private:
-		bool m_are_initialized = false;
 };
-
-// GETTERS
-inline bool Drivers::are_initialized(void) const { return m_are_initialized; }
 
 extern Drivers drivers;
 

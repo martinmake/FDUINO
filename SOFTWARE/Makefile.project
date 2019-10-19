@@ -25,7 +25,7 @@ OBJS    :=$(OBJS_C) $(OBJS_CXX) $(OBJS_ASM)
 INC:=$(addprefix -I,$(DIRS_INC) $(DIR_LIB_INC) $(DIR_FOSL))
 
 FLAGS_CC :=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS) -std=c99
-FLAGS_CXX:=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS) -std=c++14 -fno-rtti
+FLAGS_CXX:=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS) -std=c++17 -fno-rtti
 FLAGS_ASM:=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) $(INC) $(DEFS)
 FLAGS_LD :=$(WARNING) $(OPTIMIZATION) -mmcu=$(MCU) -L$(DIR_LIB_LIB)/$(MCU) -Wl,-u,vfprintf -Wl,--gc-sections
 
@@ -73,7 +73,7 @@ $(DIR_DEP)/%.d: $(DIR_SRC)/%.S
 
 .PHONY: flash
 flash:
-	sudo avrdude -v -p $(MCU) -c $(PROG) -P $(PORT) -U flash:w:$(HEX):i
+	sudo avrdude -vv -p $(MCU) -c $(PROG) -P $(PORT) -U flash:w:$(HEX):i
 
 .PHONY: serial
 serial:

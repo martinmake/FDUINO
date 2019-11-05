@@ -1,6 +1,3 @@
-# CMake build
-build
-
 # Compiled Object files
 *.slo
 *.lo
@@ -9,7 +6,7 @@ build
 *.oc
 *.obj
 
-# Object dependencies
+# Object Dependencies
 *.d
 
 # Precompiled Headers
@@ -21,7 +18,7 @@ build
 *.dylib
 *.dll
 
-# Fortran module files
+# Fortran Module Files
 *.mod
 *.smod
 
@@ -40,24 +37,11 @@ build
 *.bin
 *.hex
 
-# Man pages
+# Compiled Man Pages
 *.[0-9].gz
 
-# Code traversal
+# Code Traversal
 tags
 cscope
 .ycm_extra_conf.py
-
-# Eagle
-*.*#*
-eagle.epf
-HARDWARE/martin_make_eagle_lib/*
-*.scr
-*.~cv
-*.tmp
-*.epf
-*.cam
-
-# Other
-HARDWARE/line_follower/printing/*
-*.zip
+compile_commands.json

@@ -1,0 +1,9 @@
+[submodule "SOFTWARE/libraries/core"]
+	path = SOFTWARE/libraries/core
+	url = git://github.com/martinmake/fosl-avr-core.git
+[submodule "SOFTWARE/libraries/util"]
+	path = SOFTWARE/libraries/util
+	url = git://github.com/martinmake/fosl-avr-util.git
+[submodule "SOFTWARE/libraries/math"]
+	path = SOFTWARE/libraries/math
+	url = git://github.com/martinmake/fosl-math.git
